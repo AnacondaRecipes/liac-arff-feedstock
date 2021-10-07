@@ -23,8 +23,8 @@ requirements:
     - python >=3.6
 
 test:
-  imports:
-    - arff
+#  imports:
+#    - arff
   commands:
     - pip check
   requires:
