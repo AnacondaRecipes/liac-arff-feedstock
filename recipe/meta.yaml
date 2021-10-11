@@ -25,6 +25,7 @@ requirements:
     - python
 
 test:
+# currently a bug is causing python 3.10 to be used running this test
 #  imports:
 #    - arff
   commands:
