@@ -11,6 +11,7 @@ source:
   sha256: 3220d0af6487c5aa71b47579be7ad1d94f3849ff1e224af3bf05ad49a0b5c4da
 
 build:
+  skip : True   # [py<36]
   number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
@@ -20,17 +21,18 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - python >=3.6
+    - python
   run:
     - python
 
 test:
-# currently a bug is causing python 3.10 to be used running this test
-#  imports:
-#    - arff
+  imports:
+    - arff
   commands:
     - pip check
   requires:
+# pin due to conda build bug which will cause the tests to be run with 3.10
+    - python <3.10
     - pip
 
 about:
